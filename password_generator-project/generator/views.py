@@ -3,4 +3,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    return HttpResponse('Hello there firend!') 
+    return render(request,'generator/home.html',)
+def password(request):
+    return HttpResponse('generator/password.html')
