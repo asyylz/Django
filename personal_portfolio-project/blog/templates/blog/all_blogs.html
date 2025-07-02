@@ -1,1 +1,11 @@
-<h1>Hello blog</h1>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+
+<div class='container text-center'>
+    <h1>Blogs</h1>
+    {%for blog in blogs%}
+    <h2>{{blog.title}}</h2>
+    <p>{{blog.date}}</p>
+    <p>{{blog.description}}</p>
+    {%endfor%}
+
+</div>
