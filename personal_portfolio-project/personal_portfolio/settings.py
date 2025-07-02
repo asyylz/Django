@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-a)=zr51@jp=l@03+(dna1n86z@)0m%4c&g(02-r%q-14#fdj6j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost","asiye.pythonanywhere.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "asiye.pythonanywhere.com"]
 
 
 # Application definition
@@ -128,3 +128,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like no locak file. You must be on production.")
