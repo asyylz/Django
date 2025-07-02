@@ -1,11 +1,23 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+{% extends "portfolio/base.html" %}
 
-<div class='container text-center'>
-    <h1>Blogs</h1>
-    {%for blog in blogs%}
-    <h2>{{blog.title}}</h2>
-    <p>{{blog.date}}</p>
-    <p>{{blog.description}}</p>
-    {%endfor%}
+{% load static %}
 
+{% block content %}
+
+<h1 id="blogtitle" class="font-weight-bold text-center">Blog</h1>
+
+<h3 class="text-center mb-5">Nick has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h3>
+
+{% for blog in blogs %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+    <a href="{% url 'blog:detail' blog.id %}">
+      <h2>{{ blog.title }}</h2>
+    </a>
+    <h5 class="text-muted">{{ blog.date|date:'M d Y'|upper }}</h5>
+    <h4>{{ blog.description|striptags|truncatechars:100 }}</h4>
+  </div>
 </div>
+{% endfor %}
+
+{% endblock %}
